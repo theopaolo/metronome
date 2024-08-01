@@ -16,7 +16,7 @@ main {
 }
 
 main p {
-    font-size: var(--step-2);
+    font-size: var(--step-3);
     text-align: center;
 }
 
@@ -37,7 +37,7 @@ footer {
 }
 
 .play, .stop {
-    font-size: .65rem;
+    font-size: .85rem;
 }
 
 .play, .stop,
@@ -45,8 +45,6 @@ footer {
     cursor: pointer;
     scale: 1.4;
 }
-
-
 
 @keyframes pulse {
     0% {
