@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metronome</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/setup.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+
+    <header>
+
+    </header>
+
+    <main class="flex flex-col align-center">
+        <div class="flex flex-col">
+            <p class="line1"></p>
+            <p class="line2"></p>
+            <p class="line3"></p>
+        </div>
+
+        <span class="btn-generate" role="button"></span>
+    </main>
+
+    <footer class="flex flex-row justify-end align-baseline gap-1">
+        <span class="play"">P</span>
+        <span class="stop">S</span>
+    </footer>
+
+    <script src="./assets/js/app.js"></script>
+
+    <script type="module">
+        import { SoundGenerator } from './assets/js/components/soundGenerator.js';
+        import { Metronome } from './assets/js/components/metronome.js';
+
+        const soundOptions = {
+            oscillators: [
+                { frequency: 300, waveType: 'sine' },
+                { frequency: 340, waveType: 'sine' },
+                { frequency: 400, waveType: 'sine' },
+            ],
+            filterFrequency: 200,
+            filterQ: 15,
+            delayTime: 0.5,
+            feedbackGain: 0.6,
+            gain: .5
+        };
+
+        const metronome = new Metronome(10, soundOptions);
+
+        function playOnClickGenerate() {
+            metronome.startSound();
+            setTimeout(() => {
+                metronome.stopSound();metronome.stopSound()
+            }, 1000);
+        }
+
+        document.querySelector('.btn-generate').addEventListener('click', playOnClickGenerate);
+        document.querySelector('.play').addEventListener('click', () => metronome.startSound());
+        document.querySelector('.stop').addEventListener('click', () => metronome.stopSound());
+    </script>
+</body>
+</html>
