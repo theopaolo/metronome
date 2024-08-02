@@ -35,25 +35,36 @@
         import { SoundGenerator } from './assets/js/components/soundGenerator.js';
         import { Metronome } from './assets/js/components/metronome.js';
 
-        const soundOptions = {
-            oscillators: [
-                { frequency: 300, waveType: 'sine' },
-                { frequency: 340, waveType: 'sine' },
-                { frequency: 400, waveType: 'sine' },
-            ],
-            filterFrequency: 200,
-            filterQ: 15,
-            delayTime: 0.5,
-            feedbackGain: 0.6,
-            gain: .5
-        };
+        const frequencies = [300,340,400,539]
+        const waveTypes = ["sine","square","triangle"]
 
-        const metronome = new Metronome(10, soundOptions);
+        function getRandomElement(array) {
+            return array[Math.floor(Math.random() * array.length)];
+        }
+
+        function generateRandomSoundOptions() {
+            return {
+                oscillators: [
+                    { frequency: getRandomElement(frequencies), waveType: getRandomElement(waveTypes) },
+                    { frequency: getRandomElement(frequencies), waveType: getRandomElement(waveTypes) },
+                    { frequency: getRandomElement(frequencies), waveType: getRandomElement(waveTypes) }
+                ],
+                filterFrequency: 200,
+                filterQ: 15,
+                delayTime: 0.5,
+                feedbackGain: 0.6,
+                gain: .5
+            };
+        }
+
+        let metronome = new Metronome(10, generateRandomSoundOptions());
 
         function playOnClickGenerate() {
+            metronome.stopSound();
+            metronome = new Metronome(10, generateRandomSoundOptions());
             metronome.startSound();
             setTimeout(() => {
-                metronome.stopSound();metronome.stopSound()
+                metronome.stopSound();
             }, 1000);
         }
 
