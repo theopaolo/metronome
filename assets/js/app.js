@@ -14,6 +14,7 @@ function pickRandom(arr, usedArr) {
         arr.push(...usedArr);
         usedArr.length = 0;
     }
+
     const index = Math.floor(Math.random() * arr.length);
     const chosen = arr[index];
     arr.splice(index, 1);

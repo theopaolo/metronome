@@ -26,14 +26,9 @@ footer {
 }
 
 .btn-generate {
-    opacity: 0;
-    border-radius: 999px;
-    background-color: var(--primary-color);
-    width: 10px;
-    height: 10px;
+    width: 18px;
     margin-top: 1rem;
     transition: scale .3s ease-in-out;
-    animation: pulse 2s ease-in-out infinite;
 }
 
 .play, .stop {
@@ -43,7 +38,7 @@ footer {
 .play, .stop,
 .btn-generate:hover {
     cursor: pointer;
-    scale: 1.4;
+    scale: 1.2;
 }
 
 @keyframes pulse {

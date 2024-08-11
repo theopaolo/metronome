@@ -21,7 +21,9 @@
             <p class="line3"></p>
         </div>
 
-        <span class="btn-generate" role="button"></span>
+        <span class="btn-generate" role="button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 40" x="0px" y="0px"><path d="M29.44,14.25c0,2.05-.82,4.02-2.38,5.69l-1.46-1.36c5.22-5.98-1.44-12.4-9.6-12.32-14.11,.28-15.71,14.24-1.46,15.91l-3.2-3.26,1.43-1.4,6.22,6.34-7.99,3.89-.88-1.8,3.76-1.83c-6.41-.76-11.33-4.88-11.33-9.86C3.26,1,28.74,1.01,29.44,14.25Z"/></svg>
+        </span>
     </main>
 
     <footer class="flex flex-row justify-center align-baseline gap-1">
@@ -35,7 +37,7 @@
         import { SoundGenerator } from './assets/js/components/soundGenerator.js';
         import { Metronome } from './assets/js/components/metronome.js';
 
-        const frequencies = [300,340,400,539]
+        const frequencies = [140,300,340,400,539, 800]
         const waveTypes = ["sine","square","triangle"]
 
         function getRandomElement(array) {
